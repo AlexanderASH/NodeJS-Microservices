@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "lib": [
+            "ES5",
+            "ES6",
+            "DOM"
+        ],
+        "target": "ES5",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+}
