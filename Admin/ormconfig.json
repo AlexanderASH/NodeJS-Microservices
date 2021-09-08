@@ -6,7 +6,7 @@
     "password": "root",
     "database": "db_microservice_admin",
     "entities": [
-        "dist/entity/*.js"
+        "src/entity/*.ts"
     ],
     "logging": false,
     "synchronize": true
