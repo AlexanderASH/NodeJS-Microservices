@@ -1,0 +1,12 @@
+{
+    "type": "mongodb",
+    "url": "mongodb+srv://admin:root2020@cluster0.qo40p.mongodb.net/db_microservice_main?retryWrites=true&w=majority",
+    "entities": [
+        "src/entity/*.ts"
+    ],
+    "cli": {
+        "entitiesDir": "src/entity"
+    },
+    "logging": false,
+    "synchronize": true
+}
