@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "root",
+    "database": "db_microservice_admin",
+    "entities": [
+        "dist/entity/*.js"
+    ],
+    "logging": true,
+    "synchronize": true
+}
