@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
 import * as amqp from 'amqplib/callback_api';
 import { Product } from './entity/product';
+import axios from 'axios';
 
 createConnection().then(db =>  {
     dotenv.config();
@@ -64,7 +65,24 @@ createConnection().then(db =>  {
                 const admin_id = parseInt(message.content.toString());
 
                 await productRepository.deleteOne({admin_id});
-            })
+            });
+
+            app.get('/api/products', async (req: Request, res: Response) => {
+                const products = await productRepository.find();
+
+                return res.send(products);
+            });
+
+            app.post('/api/products/:id/like', async (req: Request, res: Response) => {
+                const product = await productRepository.findOne(req.params.id);
+
+                await axios.post(`http://localhost:3300/api/products/${product.admin_id}/like`, {});
+
+                product.likes++;
+                await productRepository.save(product);
+
+                return res.send(product);
+            });
         
             app.listen(PORT, () => {
                 console.log(`Running server in port ${PORT}`);
